@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malaga 2026 – Vejrudsigt</title>
+<style>
+  :root{
+    --sun:#e8820c; --sea:#1f7a8c; --deep:#0b3954; --sand:#fdf6ec;
+    --card:#ffffff; --line:#e7ddcf; --ink:#2a2320; --muted:#6b6058;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.55}
+  .hero{background:linear-gradient(135deg,var(--sun),#f0a63f);color:#fff;padding:48px 24px 40px;text-align:center}
+  .hero h1{font-size:2.3rem;margin-bottom:6px}
+  .hero .sub{opacity:.92;font-size:1rem}
+  .back{display:inline-block;margin-top:14px;color:#fff;text-decoration:none;font-weight:600;
+    background:rgba(255,255,255,.18);padding:6px 14px;border-radius:999px;font-size:.9rem}
+  .wrap{max-width:1000px;margin:0 auto;padding:26px 18px 60px}
+  .note{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:.9rem;color:var(--muted);margin-bottom:20px}
+  .days{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;
+    box-shadow:0 2px 8px rgba(11,57,84,.05)}
+  .day.trip{border:2px solid var(--sun);box-shadow:0 3px 12px rgba(232,130,12,.18)}
+  .day .dato{font-weight:700;color:var(--deep);font-size:.95rem}
+  .day .uge{color:var(--muted);font-size:.78rem;text-transform:capitalize}
+  .day .ico{font-size:2.4rem;margin:6px 0 2px}
+  .day .txt{font-size:.8rem;color:var(--muted);min-height:2.4em;display:flex;align-items:center;justify-content:center}
+  .day .temp{font-size:1.15rem;font-weight:800;color:var(--ink);margin-top:4px}
+  .day .temp .min{color:var(--sea);font-weight:600}
+  .day .meta{font-size:.76rem;color:var(--muted);margin-top:6px;line-height:1.5}
+  .tripbadge{display:inline-block;background:var(--sun);color:#fff;border-radius:999px;padding:1px 8px;font-size:.68rem;font-weight:700;margin-top:6px}
+  h2{color:var(--sun);margin:30px 0 8px;font-size:1.2rem}
+  .climate{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+  .climate .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:8px}
+  .climate .stat{text-align:center}
+  .climate .num{font-size:1.5rem;font-weight:800;color:var(--deep)}
+  .climate .lbl{color:var(--muted);font-size:.82rem}
+  .loading,.error{text-align:center;color:var(--muted);padding:40px 0}
+  .error{color:#b3541e}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 18px 10px}
+  a{color:var(--sea)}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>🌤️ Vejret i Mijas</h1>
+    <div class="sub">Live 16-dages udsigt · rejse 29. juli – 9. august 2026</div>
+    <a class="back" href="index.html">← Tilbage til rejseoverblik</a>
+  </div>
+
+  <div class="wrap">
+    <div class="note" id="note">Henter live vejrudsigt for husets placering (36,59° N, -4,62° Ø)…</div>
+    <div class="days" id="days"><div class="loading">⏳ Indlæser…</div></div>
+
+    <h2>Typisk vejr sidst i juli / først i august</h2>
+    <div class="climate">
+      <p style="color:var(--muted);font-size:.9rem">Costa del Sol / Mijas er på denne årstid varmt, tørt og meget solrigt. Gennemsnitlige forhold (klimanormaler – ikke en udsigt):</p>
+      <div class="grid">
+        <div class="stat"><div class="num">29–31°C</div><div class="lbl">Dag</div></div>
+        <div class="stat"><div class="num">20–22°C</div><div class="lbl">Nat</div></div>
+        <div class="stat"><div class="num">~24°C</div><div class="lbl">Havtemperatur</div></div>
+        <div class="stat"><div class="num">11–12 t</div><div class="lbl">Sol pr. dag</div></div>
+        <div class="stat"><div class="num">~1–2 dage</div><div class="lbl">Med regn (hele mdr.)</div></div>
+        <div class="stat"><div class="num">Høj–meget høj</div><div class="lbl">UV-indeks</div></div>
+      </div>
+    </div>
+
+    <footer>Live data: Open-Meteo.com (gratis, opdateres automatisk). Dage uden for 16-dages horisonten vises ikke – brug klimatallene ovenfor som pejlemærke.</footer>
+  </div>
+
+<script>
+const LAT = 36.588018, LON = -4.621808;
+const TRIP_START = "2026-07-29", TRIP_END = "2026-08-09";
+const WMO = {
+  0:["☀️","Klart"],1:["🌤️","Overvejende klart"],2:["⛅","Delvist skyet"],3:["☁️","Overskyet"],
+  45:["🌫️","Tåge"],48:["🌫️","Rimtåge"],
+  51:["🌦️","Let støvregn"],53:["🌦️","Støvregn"],55:["🌦️","Kraftig støvregn"],
+  56:["🌧️","Isslag"],57:["🌧️","Kraftigt isslag"],
+  61:["🌧️","Let regn"],63:["🌧️","Regn"],65:["🌧️","Kraftig regn"],
+  66:["🌧️","Underafkølet regn"],67:["🌧️","Kraftig underafkølet regn"],
+  71:["❄️","Let sne"],73:["❄️","Sne"],75:["❄️","Kraftig sne"],77:["❄️","Snekorn"],
+  80:["🌦️","Regnbyger"],81:["🌦️","Regnbyger"],82:["⛈️","Kraftige regnbyger"],
+  85:["🌨️","Snebyger"],86:["🌨️","Kraftige snebyger"],
+  95:["⛈️","Tordenvejr"],96:["⛈️","Torden m. hagl"],99:["⛈️","Kraftig torden m. hagl"]
+};
+const UGEDAGE = ["søn","man","tir","ons","tor","fre","lør"];
+const MDR = ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"];
+
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}`
+  + `&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,`
+  + `weather_code,wind_speed_10m_max,uv_index_max&timezone=Europe/Madrid&forecast_days=16`;
+
+fetch(url).then(r => r.json()).then(data => {
+  const d = data.daily;
+  const days = document.getElementById("days");
+  days.innerHTML = "";
+  let tripCount = 0;
+  d.time.forEach((iso, i) => {
+    const dt = new Date(iso + "T12:00:00");
+    const isTrip = iso >= TRIP_START && iso <= TRIP_END;
+    if (isTrip) tripCount++;
+    const [ico, txt] = WMO[d.weather_code[i]] || ["🌡️","–"];
+    const el = document.createElement("div");
+    el.className = "day" + (isTrip ? " trip" : "");
+    el.innerHTML =
+      `<div class="uge">${UGEDAGE[dt.getDay()]}</div>` +
+      `<div class="dato">${dt.getDate()}. ${MDR[dt.getMonth()]}</div>` +
+      `<div class="ico">${ico}</div>` +
+      `<div class="txt">${txt}</div>` +
+      `<div class="temp">${Math.round(d.temperature_2m_max[i])}° <span class="min">${Math.round(d.temperature_2m_min[i])}°</span></div>` +
+      `<div class="meta">💧 ${d.precipitation_probability_max[i] ?? 0}% · 💨 ${Math.round(d.wind_speed_10m_max[i])} km/t<br>UV ${Math.round(d.uv_index_max[i])}</div>` +
+      (isTrip ? `<div class="tripbadge">Rejsedag</div>` : "");
+    days.appendChild(el);
+  });
+  const note = document.getElementById("note");
+  const lastDate = d.time[d.time.length - 1];
+  if (tripCount > 0) {
+    note.innerHTML = `✅ Udsigten dækker <b>${tripCount}</b> af jeres rejsedage (markeret med orange). Resten ligger uden for 16-dages horisonten – se klimatallene nederst.`;
+  } else {
+    note.innerHTML = `ℹ️ Rejsen (29. juli–9. august) ligger endnu uden for 16-dages udsigten (rækker til ${lastDate}). Kom tilbage tættere på afrejse – så dukker rejsedagene op her. Brug klimatallene nederst indtil da.`;
+  }
+}).catch(e => {
+  document.getElementById("days").innerHTML =
+    `<div class="error">Kunne ikke hente vejrdata lige nu. Prøv at genindlæse siden.</div>`;
+  document.getElementById("note").style.display = "none";
+});
+</script>
+</body>
+</html>
