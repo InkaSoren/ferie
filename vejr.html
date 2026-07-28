@@ -90,7 +90,7 @@ const MDR = ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","
 
 const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}`
   + `&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,`
-  + `weather_code,wind_speed_10m_max,uv_index_max&timezone=Europe/Madrid&forecast_days=16`;
+  + `weather_code,wind_speed_10m_max,uv_index_max&wind_speed_unit=ms&timezone=Europe/Madrid&forecast_days=16`;
 
 fetch(url).then(r => r.json()).then(data => {
   const d = data.daily;
@@ -110,7 +110,7 @@ fetch(url).then(r => r.json()).then(data => {
       `<div class="ico">${ico}</div>` +
       `<div class="txt">${txt}</div>` +
       `<div class="temp">${Math.round(d.temperature_2m_max[i])}° <span class="min">${Math.round(d.temperature_2m_min[i])}°</span></div>` +
-      `<div class="meta">💧 ${d.precipitation_probability_max[i] ?? 0}% · 💨 ${Math.round(d.wind_speed_10m_max[i])} km/t<br>UV ${Math.round(d.uv_index_max[i])}</div>` +
+      `<div class="meta">💧 ${d.precipitation_probability_max[i] ?? 0}% · 💨 ${Math.round(d.wind_speed_10m_max[i])} m/s<br>UV ${Math.round(d.uv_index_max[i])}</div>` +
       (isTrip ? `<div class="tripbadge">Rejsedag</div>` : "");
     days.appendChild(el);
   });
