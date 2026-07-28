@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malaga 2026 – Find MalagaCar i lufthavnen</title>
+<style>
+  :root{
+    --sun:#e8820c; --sea:#1f7a8c; --deep:#0b3954; --sand:#fdf6ec;
+    --card:#ffffff; --line:#e7ddcf; --ink:#2a2320; --muted:#6b6058;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.6}
+  .hero{background:linear-gradient(135deg,var(--sea),var(--deep));color:#fff;padding:48px 24px 40px;text-align:center}
+  .hero h1{font-size:2.2rem;margin-bottom:6px}
+  .hero .sub{opacity:.92;font-size:1rem}
+  .navlinks{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .navlinks a{color:#fff;text-decoration:none;font-weight:600;background:rgba(255,255,255,.18);
+    padding:7px 15px;border-radius:999px;font-size:.9rem}
+  .wrap{max-width:760px;margin:0 auto;padding:30px 18px 60px}
+  .steps{list-style:none;counter-reset:step}
+  .steps li{counter-increment:step;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:18px 20px 18px 60px;position:relative;margin-bottom:14px;
+    box-shadow:0 2px 8px rgba(11,57,84,.05)}
+  .steps li::before{content:counter(step);position:absolute;left:16px;top:18px;
+    background:var(--sea);color:#fff;width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+  .steps li b{color:var(--deep)}
+  .warn{background:#fff7ec;border:1px solid #f3d9ac;border-radius:12px;padding:16px 18px;
+    margin:20px 0;font-size:.92rem;color:#8a5a12}
+  .warn b{color:#8a5a12}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:20px}
+  .card h2{color:var(--sea);font-size:1.1rem;margin-bottom:10px}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+  .row:last-child{border-bottom:none}
+  .row .k{color:var(--muted)}
+  .row .v{text-align:right;font-weight:600}
+  a.btn{display:inline-block;margin-top:8px;background:var(--sun);color:#fff;text-decoration:none;
+    padding:9px 18px;border-radius:999px;font-weight:600;font-size:.9rem}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:26px 18px 10px}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>🚗 Find MalagaCar i lufthavnen</h1>
+    <div class="sub">Málaga Airport (AGP) → afhentning af lejebil</div>
+    <div class="navlinks">
+      <a href="index.html">← Rejseoverblik</a>
+      <a href="vejr.html">🌤️ Vejr</a>
+      <a href="udflugter.html">🗺️ Udflugter</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="warn">⚠️ <b>Gå IKKE ned i kælderen</b>, hvor de andre biludlejningsskranker ligger. MalagaCar afhentes et andet sted — følg trinene herunder.</div>
+
+    <ol class="steps">
+      <li><b>Hent jeres bagage</b> som normalt i ankomsthallen.</li>
+      <li><b>Gå IKKE til kælderen</b> med de øvrige rentacar-skranke. Gå i stedet ud gennem skydedørene og find udgangen fra ankomsthallen.</li>
+      <li><b>Gå ligeud</b>, til I når vejen udenfor terminalen.</li>
+      <li><b>Krydsuer</b>: brug fodgængerovergangen (zebra-overgang) over vejen.</li>
+      <li><b>Fortsæt til togstationen.</b> MalagaCars afhentningssted ligger lige bag ved togstationsbygningen.</li>
+      <li><b>Find repræsentanten</b> — en uniformeret MalagaCar-medarbejder venter der med et skilt med "MalagaCar.com".</li>
+      <li><b>Minibus (~2 min).</b> En MalagaCar-minibus kører jer det korte stykke til deres kontor, hvor bilen udleveres.</li>
+    </ol>
+
+    <div class="warn">⚠️ <b>Pas på forvekslinger:</b> Der findes andre firmaer, der også kalder sig noget med "Malagacar" — det er IKKE det samme firma. Det rigtige hedder <b>"Malagacar.com"</b>. Genkend dem på deres logo på kontrakter, uniformer, bilnøgler og minibussen.</div>
+
+    <div class="card">
+      <h2>📍 Direkte link til afhentningsstedet</h2>
+      <p style="color:var(--muted);font-size:.9rem">MalagaCar har selv lavet en guide med kort og billeder af, hvor I skal gå hen.</p>
+      <a class="btn" href="https://www.malagacar.com/link/pickup" target="_blank" rel="noopener">Se afhentningsguide →</a>
+    </div>
+
+    <div class="card">
+      <h2>📋 Jeres booking</h2>
+      <div class="row"><span class="k">Bookingnr.</span><span class="v">1829116</span></div>
+      <div class="row"><span class="k">Afhentning</span><span class="v">29/07/2026 kl. 14:00</span></div>
+      <div class="row"><span class="k">Aflevering</span><span class="v">08/08/2026 kl. 10:00 (Málaga lufthavn)</span></div>
+      <div class="row"><span class="k">Flynummer</span><span class="v">D85085</span></div>
+      <div class="row"><span class="k">Bilgruppe</span><span class="v">Ford Tourneo Courier / Toyota Proace City Verso</span></div>
+      <div class="row"><span class="k">Pris</span><span class="v">470 € (fuld pakke, forsikring inkl.)</span></div>
+      <div class="row"><span class="k">Kontakt</span><span class="v">+34 952 17 60 30</span></div>
+    </div>
+
+    <footer>Kilde: bekræftelsesmail fra MalagaCar.com, booking 1829116.</footer>
+  </div>
+</body>
+</html>
