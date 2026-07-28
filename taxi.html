@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malaga 2026 – Find en taxa i lufthavnen</title>
+<style>
+  :root{
+    --sun:#e8820c; --sea:#1f7a8c; --deep:#0b3954; --sand:#fdf6ec;
+    --card:#ffffff; --line:#e7ddcf; --ink:#2a2320; --muted:#6b6058;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.6}
+  .hero{background:linear-gradient(135deg,var(--sun),#f0a63f);color:#fff;padding:48px 24px 40px;text-align:center}
+  .hero h1{font-size:2.2rem;margin-bottom:6px}
+  .hero .sub{opacity:.92;font-size:1rem}
+  .navlinks{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .navlinks a{color:#fff;text-decoration:none;font-weight:600;background:rgba(255,255,255,.18);
+    padding:7px 15px;border-radius:999px;font-size:.9rem}
+  .wrap{max-width:760px;margin:0 auto;padding:30px 18px 60px}
+  .steps{list-style:none;counter-reset:step}
+  .steps li{counter-increment:step;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:18px 20px 18px 60px;position:relative;margin-bottom:14px;
+    box-shadow:0 2px 8px rgba(11,57,84,.05)}
+  .steps li::before{content:counter(step);position:absolute;left:16px;top:18px;
+    background:var(--sun);color:#fff;width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+  .steps li b{color:var(--deep)}
+  .warn{background:#fff7ec;border:1px solid #f3d9ac;border-radius:12px;padding:16px 18px;
+    margin:20px 0;font-size:.92rem;color:#8a5a12}
+  .warn b{color:#8a5a12}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:20px}
+  .card h2{color:var(--sea);font-size:1.1rem;margin-bottom:10px}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+  .row:last-child{border-bottom:none}
+  .row .k{color:var(--muted)}
+  .row .v{text-align:right;font-weight:600}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:26px 18px 10px}
+  a{color:var(--sea)}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>🚕 Find en taxa i lufthavnen</h1>
+    <div class="sub">Málaga Airport, Terminal 3 → officiel taxiholdeplads</div>
+    <div class="navlinks">
+      <a href="index.html">← Rejseoverblik</a>
+      <a href="malagacar.html">🚗 Find MalagaCar</a>
+      <a href="udflugter.html">🗺️ Udflugter</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <p style="color:var(--muted);font-size:.92rem;margin-bottom:18px">Til de 2, der tager taxa direkte fra lufthavnen til huset, mens de øvrige 4 henter lejebilen hos MalagaCar.</p>
+
+    <ol class="steps">
+      <li><b>Hent bagagen</b> i ankomsthallen, Terminal 3.</li>
+      <li><b>Forlad ankomsthallen</b> og drej til <b>højre</b> uden for terminalen.</li>
+      <li><b>Følg skiltningen</b> "Taxi" — holdepladsen ligger lige uden for bygningen, overdækket.</li>
+      <li><b>Stil jer i køen.</b> Der er en officiel kø-ordning — I tager den næste ledige taxi i rækken.</li>
+      <li><b>Sig adressen</b> eller vis chaufføren huset på kortet: <i>Diseminado Los Espartales 24, Mijas Pueblo</i>.</li>
+    </ol>
+
+    <div class="warn">⚠️ <b>Brug kun den officielle holdeplads udenfor.</b> Undgå folk, der tilbyder "taxi" eller transport inde i terminalen — det er ofte ikke officielle taxier.</div>
+
+    <div class="card">
+      <h2>ℹ️ Godt at vide</h2>
+      <div class="row"><span class="k">Åbningstid</span><span class="v">Døgnåben, alle dage</span></div>
+      <div class="row"><span class="k">Betaling</span><span class="v">Kort accepteres normalt — kontanter er et sikkert bud</span></div>
+      <div class="row"><span class="k">Pris</span><span class="v">Spørg chaufføren om fast pris til Mijas, inden I kører</span></div>
+      <div class="row"><span class="k">Køretid til huset</span><span class="v">Ca. 20–30 min</span></div>
+    </div>
+
+    <footer>Kilde: officielle oplysninger om Málaga lufthavns taxiholdeplads (Terminal 3, Arrivals).</footer>
+  </div>
+</body>
+</html>
